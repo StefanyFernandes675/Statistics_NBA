@@ -2,13 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-season_year = []
-
 st.title('NBA Statistics')
 
 df = pd.read_csv("all_seasons.csv")
 df = df.drop('Unnamed: 0', axis=1)
-df = df.dropna(how="any", axis=0) #linhas com valores vazios
 df["draft_year"] = pd.to_numeric(df["draft_year"], errors="coerce")
 df["draft_round"] = pd.to_numeric(df["draft_round"], errors="coerce")
 df["draft_number"] = pd.to_numeric(df["draft_number"], errors="coerce")
