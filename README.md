@@ -16,4 +16,3 @@ As seguintes tecnologias foram utilizadas no projeto:
 - [Numpy](https://numpy.org/)
 - [Plotly Express](https://plotly.com/python/plotly-express/)
 - [Seaborn](https://seaborn.pydata.org/)
-### 🚧 Em construção
