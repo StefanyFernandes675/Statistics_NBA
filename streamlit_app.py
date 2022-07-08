@@ -1,4 +1,3 @@
-from os import stat
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -20,16 +19,13 @@ selected_year = st.sidebar.selectbox('Temporada', reversed(seasons))
 teams = sorted(df.team_abbreviation.unique())
 selected_team = st.sidebar.multiselect('Times', teams, teams)
 
-country = sorted(df.country.unique())
-selected_country = st.sidebar.multiselect('País', country, country)
-
 @st.cache
 def select_data(year_season):
     select = df[df["season"] == year_season]
     return select
 new_data = select_data(selected_year)
 
-df_selected = new_data[(new_data.team_abbreviation.isin(selected_team)) & (new_data.country.isin(selected_country))]
+df_selected = new_data[(new_data.team_abbreviation.isin(selected_team))]
 players = df_selected["player_name"].unique()
 
 st.write(f"Banco de dados: {df_selected.shape[0]} linhas X {df_selected.shape[1]} colunas")
